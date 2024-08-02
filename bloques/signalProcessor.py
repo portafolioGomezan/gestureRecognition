@@ -89,9 +89,9 @@ class SignalProcessor:
     self.foco = 11
 
     # Lista de gestos soportados
-    self.gestos = ["Desc", "CH", "TIP", "TMP", "TRP", "TPP"]
+    self.Gestos = ["RH", "CH", "TIP", "TMP", "TRP", "TPP"]
     # Relaciona los gestos soportados con números enteros
-    self.gestos_int = {"Desc": 0, "CH": 1, "TIP": 2, "TMP": 3, "TRP": 4, "TPP": 5}
+    self.GestosInt = {"RH": 0, "CH": 1, "TIP": 2, "TMP": 3, "TRP": 4, "TPP": 5}
 
     self.nivel1g=[[self.inicio,self.inicio+self.gesto],
      [self.inicio+self.gesto+self.descp,self.inicio+2*self.gesto+self.descp],
@@ -126,13 +126,17 @@ class SignalProcessor:
      [2*self.inicio+8*self.gesto+7*self.descp+2*self.fatiga,2*self.fatiga+2*self.inicio+9*self.gesto+7*self.descp],
      [2*self.inicio+9*self.gesto+8*self.descp+2*self.fatiga,2*self.fatiga+2*self.inicio+10*self.gesto+8*self.descp]]
 
+    #Niveles de descanso
+    #Para balancear las clases el descanso se corta a solo 6 s.
+    self.nivel1d=[[self.inicio+5*self.gesto+4*self.descp+self.foco,self.inicio+5*self.gesto+4*self.descp+self.descm-self.foco]]
+    self.nivel2d=[[2*self.inicio+5*self.gesto+4*self.descp+self.fatiga+self.foco,2*self.inicio+5*self.gesto+4*self.descp+self.descm+self.fatiga-self.foco]]
 
     # Lista de niveles soportados
     self.niveles = [1, 2, 3]
 
     # Relaciona niveles con las estructuras que contienen su forma
-    self.formato_nivel = {1: self.nivel1g, 2: self.nivel2g, 3: self.nivel3g}
-    self.formato_descanso = {1: self.nivel1d, 2: self.nivel2d, 3: None}
+    self.formatoNivel = {1: self.nivel1g, 2: self.nivel2g, 3: self.nivel3g}
+    self.formatoDescanso = {1: self.nivel1d, 2: self.nivel2d, 3: None}
 
     # Tamaño de ventana en milisegundos
     self.tam = 200
@@ -141,7 +145,20 @@ class SignalProcessor:
     # Overlap entre las muestras
     self.over = 0.5
 
-  def graficar(senal):
+
+  def set_path(self, path):
+    """
+    Sets the path for the signal processor.
+
+    Parameters:
+    - path (str): The path to set.
+
+    Returns:
+    - None
+    """
+    self.path = path
+
+  def graficar(self,senal):
     """
     Plot the EMG signal.
 
@@ -170,7 +187,7 @@ class SignalProcessor:
     # Mostrar la gráfica
     plt.show()
 
-  def separacion(dataframe):
+  def separacion(self,dataframe):
     """Transpose the dataframe.
 
     Args:
@@ -291,7 +308,7 @@ class SignalProcessor:
     return(desc)
 
 
-  def cargarArchvivo(path):
+  def cargarArchvivo(self, path):
       """Load the EMG signal data from a file.
 
     Args:
@@ -340,7 +357,7 @@ class SignalProcessor:
         y=y+self.etiquetar(i[1], len(g))
         d=self.buscarDescanso(file,i[2])
         x=x+d
-        y=y+self.etiquetar("Desc", len(d))
+        y=y+self.etiquetar("RH", len(d))
 
     return x, y
 
@@ -357,11 +374,11 @@ class SignalProcessor:
     
     direc=[]
     for i in self.Gestos:
-      if(i!="Desc"):
+      if(i!="RH"):
         direc=direc+self.getSignalsxMov(user,i)
     return direc
 
-  def getSignalsxMov(self, path, user,mov):
+  def getSignalsxMov(self, user,mov):
     """Get the file paths for a user's EMG signals for a specific gesture.
 
     Args:
@@ -371,13 +388,13 @@ class SignalProcessor:
     Returns:
       list: List of file paths.
     """
-    full=path+"/"+user+"/"+mov
+    full=self.path+"/"+user+"/"+mov
     direc=[]
     for i in self.niveles:
       direc.append(self.getSignalsxLevel(user,mov,i))
     return direc
 
-  def getSignalsxLevel(path,user,mov,lv):
+  def getSignalsxLevel(self,user,mov,lv):
     """Get the file path for a user's EMG signal for a specific gesture and level.
 
     Args:
@@ -390,12 +407,12 @@ class SignalProcessor:
     """
 
     file="emg_"+mov+".mat"
-    full=path+"/"+user+"/"+mov+"/"+str(lv)+"/"+file
+    full=self.path+"/"+user+"/"+mov+"/"+str(lv)+"/"+file
     #print(full)
     return (full,mov,lv)
 
   #Localiza usuario
-  def buscarUser(tamUsers):
+  def buscarUser(self,tamUsers):
     """Find the user names.
 
     Args:
@@ -406,13 +423,14 @@ class SignalProcessor:
     """
     return ["user"+str(i) for i in range(tamUsers)]
 
-  def crearDataset(self):
+
+  def crearDataset(self, tamUsers):
     """Create the dataset.
 
     Returns:
       tuple: Tuple containing the input data (x) and the labels (y).
     """
-    usuarios=self.buscarUser()
+    usuarios=self.buscarUser(tamUsers)
 
     x=[]
     y=[]

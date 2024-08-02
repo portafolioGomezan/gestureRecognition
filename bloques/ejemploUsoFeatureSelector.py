@@ -22,9 +22,23 @@ def main():
 
   xCalc = x.reshape((forma[0]*forma[1], forma[2]))
   xdf = pd.DataFrame(xCalc)
-  print(len(xdf))
-  xdf.head()
+  print(xdf.shape)
 
   # Get the features of the dataset calculated by the featureSelector
-  xtrainC = fs.caracterizar(xdf)
+  featureSelector = fs.FeatureSelector()
+  xtrainC = featureSelector.caracterizar(xdf)
   print(len(xtrainC))
+
+  xn=np.array(xtrainC)
+  new=xn.reshape((forma[0],8*len(featureSelector.nombresCarac)))
+  xtrainC=pd.DataFrame(new)
+  xtrainC = xtrainC.rename(columns=dict(zip(xtrainC.columns, featureSelector.nombresFull)))
+
+  array = xtrainC.to_numpy()
+  np.save("xtrainC.npy",array)
+
+
+
+
+if __name__ == "__main__":
+  main()

@@ -52,39 +52,38 @@ class featureExplorer:
     DaviesBouldinIndex(vF, vL, nFeatures): Calculates the Davies Bouldin Index for feature selection.
     """
 
-    class FeatureExplorer:
-        def __init__(self):
-            """
-            Initializes a FeatureExplorer object.
+    def __init__(self):
+        """
+        Initializes a FeatureExplorer object.
 
-            The FeatureExplorer class is used for exploring features related to gestures.
-            It initializes various dictionaries and lists used for mapping and storing information.
+        The FeatureExplorer class is used for exploring features related to gestures.
+        It initializes various dictionaries and lists used for mapping and storing information.
 
-            Attributes:
-            - GestosInt (dict): A dictionary mapping gesture names to integer values.
-            - IntGestos (dict): A dictionary mapping integer values to gesture names.
-            - nombresCarac (list): A list of feature names.
-            - nombresFull (list): A list of feature names combined with index values.
-            - nombresFullIndex (range): A range of index values for the feature names.
-            - IntGestosFull (dict): A dictionary mapping index values to feature names.
-            - numClases (int): The number of classes.
+        Attributes:
+        - GestosInt (dict): A dictionary mapping gesture names to integer values.
+        - IntGestos (dict): A dictionary mapping integer values to gesture names.
+        - nombresCarac (list): A list of feature names.
+        - nombresFull (list): A list of feature names combined with index values.
+        - nombresFullIndex (range): A range of index values for the feature names.
+        - IntGestosFull (dict): A dictionary mapping index values to feature names.
+        - numClases (int): The number of classes.
 
-            """
-            self.GestosInt = {"RMS":0,"STD":1,"Varianza":2,"MAV":3,"WL":4,"Promedio":5,"ZC":6,"kurtosis":7,"skewness":8, "iEMG":9, "SSC":10,
-                              "WAMP":11,"MAS":12, "MP":13, "MDF":14, "MNF":15}
-            self.IntGestos = {0:"RMS",1:"STD",2:"Varianza",3:"MAV",4:"WL",5:"Promedio",6:"ZC",7:"kurtosis",8:"skewness", 9:"iEMG",
-                              10:"SSC",11: "WAMP",12:"MAS",13: "MP",14: "MDF",15: "MNF"}
-            self.nombresCarac = ["RMS","STD","Varianza","MAV","WL","Promedio","ZC","kurtosis","skewness", "iEMG", "SSC", "WAMP",
-                                 "MAS", "MP", "MDF", "MNF"]
-            self.nombresFull = [j+str(i) for i in range(8) for j in self.nombresCarac]
-            self.nombresFullIndex = range(8 * len(self.nombresCarac))
-            self.IntGestosFull = dict(zip(self.nombresFullIndex, self.nombresFull))
-            self.numClases = 6
+        """
+        self.GestosInt = {"RMS":0,"STD":1,"Varianza":2,"MAV":3,"WL":4,"Promedio":5,"ZC":6,"kurtosis":7,"skewness":8, "iEMG":9, "SSC":10,
+                            "WAMP":11,"MAS":12, "MP":13, "MDF":14, "MNF":15}
+        self.IntGestos = {0:"RMS",1:"STD",2:"Varianza",3:"MAV",4:"WL",5:"Promedio",6:"ZC",7:"kurtosis",8:"skewness", 9:"iEMG",
+                            10:"SSC",11: "WAMP",12:"MAS",13: "MP",14: "MDF",15: "MNF"}
+        self.nombresCarac = ["RMS","STD","Varianza","MAV","WL","Promedio","ZC","kurtosis","skewness", "iEMG", "SSC", "WAMP",
+                                "MAS", "MP", "MDF", "MNF"]
+        self.nombresFull = [j+str(i) for i in range(8) for j in self.nombresCarac]
+        self.nombresFullIndex = range(8 * len(self.nombresCarac))
+        self.IntGestosFull = dict(zip(self.nombresFullIndex, self.nombresFull))
+        self.numClases = 6
 
 
     """## Funciones importantes"""
 
-    def plot_box(data, titulo):
+    def plot_box(self,data, titulo):
         """
         Plots a boxplot for the given data.
 
@@ -167,7 +166,7 @@ class featureExplorer:
     Se evaluan los componenetes y extraen aquellos que conservan la mayor cantidad de variabilidad.
     """
 
-    def pca_analysis(x, tam):
+    def pca_analysis(self,x, tam):
         """
         Performs PCA analysis on the given data.
 
@@ -241,30 +240,44 @@ class featureExplorer:
         Returns:
             None
         """
+
+        if not isinstance(x, pd.DataFrame):
+            x=pd.DataFrame(x)
+
+        if not isinstance(y, pd.DataFrame):
+            y=pd.DataFrame(y)
+
+
         selected_features = mrmr_classif(X=x, y=y, K=len(self.nombresCarac),return_scores=True)
         print(selected_features[1])
 
 
         MRMRResults=pd.Series([selected_features[1][i] for i in range(len(selected_features[1]))])
-        print(MRMRResults)
-
         self.plot_matrix(selected_features[1],"Análisis MRMR")
 
+        return(MRMRResults)
 
 
-
-    def t_test(self,vF, vL, nClass):
+    def t_test(self,vF, vL):
         """
         Performs t-test for feature selection.
 
         Args:
             vF (pd.DataFrame): The feature data.
             vL (pd.DataFrame): The label data.
-            nClass (int): The number of classes.
 
         Returns:
             vsF (pd.Series): The p-values obtained from t-test.
         """
+
+        if not isinstance(vF, pd.DataFrame):
+            vF=pd.DataFrame(vF)
+            vF.columns=self.nombresFull
+
+        if not isinstance(vL, pd.DataFrame):
+            vL=pd.DataFrame(vL)
+
+        nClass=self.numClases
         alpha = 0.01
         res=[]
 
@@ -274,8 +287,8 @@ class featureExplorer:
                 data=[]
                 for idxCF in self.nombresFull:
 
-                    data1=vF[vL["Y"]==idxC1]
-                    data2=vF[vL["Y"]==idxC2]
+                    data1=vF[vL[0]==idxC1]
+                    data2=vF[vL[0]==idxC2]
                     ax = data1[idxCF]  # clase idxC1 caracteristica idxCF
                     ay = data2[idxCF]  # clase idxC2 caracteristica idxCF
 
@@ -286,13 +299,14 @@ class featureExplorer:
                 res.append(data)
 
         vsF=pd.DataFrame(res).mean()
+        self.plot_matrix(vsF,"Análisis t test")
         return vsF
 
 
 
     """## Indice de Davies Bouldin"""
 
-    def DaviesBouldinIndex(self, vF, vL, nFeatures):
+    def DaviesBouldinIndex(self, vF, vL):
         """
         Calculates the Davies Bouldin Index for feature selection.
 
@@ -304,14 +318,23 @@ class featureExplorer:
         Returns:
             None
         """
+        if not isinstance(vF, pd.DataFrame):
+            vF=pd.DataFrame(vF)
+            vF.columns=self.nombresFull
+
+        if not isinstance(vL, pd.DataFrame):
+            vL=pd.DataFrame(vL)
+
+        nFeatures = len(self.nombresFull)
+
         DB = np.zeros(nFeatures)
 
         for idxCF in range(nFeatures):
             ax = np.array(vF[self.nombresFull[idxCF]])
             ax=np.reshape(ax,(-1,1))
-            DB[idxCF]= davies_bouldin_score(ax, vL["Y"])
-
-        self.plot_box(DB,"Resultados Davies Bouldin")
+            DB[idxCF]= davies_bouldin_score(ax, vL[0])
 
         self.plot_matrix(DB,"Davies Bouldin")
+
+        return DB
 
