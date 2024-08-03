@@ -1,0 +1,2859 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>seleccionCaracteristicas - iREHAB sEMG</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">iREHAB sEMG</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Index</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../exploradorCaracteristicas/" class="nav-link">exploradorCaracteristicas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../procesamientoSe%C3%B1ales/" class="nav-link">procesamientoSeñales</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">seleccionCaracteristicas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../userManual/" class="nav-link">User Manual</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                            <li class="nav-item">
+                                <a rel="prev" href="../procesamientoSe%C3%B1ales/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../userManual/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="2"><a href="#bloques.featureSelector" class="nav-link">featureSelector</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#bloques.featureSelector.FeatureSelector" class="nav-link">FeatureSelector</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#bloques.ejemploUsoFeatureSelector" class="nav-link">ejemploUsoFeatureSelector</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#bloques.ejemploUsoFeatureSelector.main" class="nav-link">main</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<div class="doc doc-object doc-module">
+
+
+
+<a id="bloques.featureSelector"></a>
+  <div class="doc doc-contents first">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="bloques.featureSelector.FeatureSelector" class="doc doc-heading">
+          <code>FeatureSelector</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>A class that represents a feature selector.</p>
+<p>Attributes:
+GestosInt (dict): A dictionary mapping gesture names to their corresponding integer values.
+IntGestos (dict): A dictionary mapping integer values to their corresponding gesture names.
+nombresCarac (list): A list of feature names.
+nombresFull (list): A list of feature names with index numbers.
+nombresFullIndex (range): A range of index numbers for feature names.
+IntGestosFull (dict): A dictionary mapping index numbers to feature names.</p>
+<p>Methods:
+<strong>init</strong>(): Initializes the FeatureSelector object.
+calcular_fft(señal): Calculates the Fast Fourier Transform (FFT) of a signal.
+graficarPCA(strP): Generates a 3D scatter plot using PCA data.
+clustering(dataSet): Clusters the given dataset based on a specified feature.
+plot_matrix(data, titulo): Plots a matrix of features with a given title.
+getRMS(senal): Calculates the root mean square (RMS) of a signal.
+getSTD(senal): Calculates the standard deviation of a signal.
+getVarianza(senal): Calculates the variance of a signal.
+getMAV(senal): Calculates the Mean Absolute Value (MAV) of a signal.
+getWL(senal): Calculates the waveform length (WL) of a signal.
+getPromedio(senal): Calculates the average of a signal.
+zero_crossing_count(signal): Counts the number of zero crossings in a signal.
+calculate_kurtosis(signal): Calculates the kurtosis of a signal.
+calculate_skewness(signal): Calculates the skewness of a signal.
+getIemg(signal): Calculates the Integrated EMG (IEMG) of a signal.
+getSSC(signal): Calculates the number of sign changes in a signal.
+getWAMP(signal): Calculates the Willison amplitude in a signal.
+getMAS(signal_data): Calculates the frequency with the highest amplitude (MAS) using the Fast Fourier Transform (FFT).
+getMP(signal): Calculates the average power spectrum using the Welch method.</p>
+
+            <details class="quote">
+              <summary>Source code in <code>bloques\featureSelector.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span>
+<span class="normal">333</span>
+<span class="normal">334</span>
+<span class="normal">335</span>
+<span class="normal">336</span>
+<span class="normal">337</span>
+<span class="normal">338</span>
+<span class="normal">339</span>
+<span class="normal">340</span>
+<span class="normal">341</span>
+<span class="normal">342</span>
+<span class="normal">343</span>
+<span class="normal">344</span>
+<span class="normal">345</span>
+<span class="normal">346</span>
+<span class="normal">347</span>
+<span class="normal">348</span>
+<span class="normal">349</span>
+<span class="normal">350</span>
+<span class="normal">351</span>
+<span class="normal">352</span>
+<span class="normal">353</span>
+<span class="normal">354</span>
+<span class="normal">355</span>
+<span class="normal">356</span>
+<span class="normal">357</span>
+<span class="normal">358</span>
+<span class="normal">359</span>
+<span class="normal">360</span>
+<span class="normal">361</span>
+<span class="normal">362</span>
+<span class="normal">363</span>
+<span class="normal">364</span>
+<span class="normal">365</span>
+<span class="normal">366</span>
+<span class="normal">367</span>
+<span class="normal">368</span>
+<span class="normal">369</span>
+<span class="normal">370</span>
+<span class="normal">371</span>
+<span class="normal">372</span>
+<span class="normal">373</span>
+<span class="normal">374</span>
+<span class="normal">375</span>
+<span class="normal">376</span>
+<span class="normal">377</span>
+<span class="normal">378</span>
+<span class="normal">379</span>
+<span class="normal">380</span>
+<span class="normal">381</span>
+<span class="normal">382</span>
+<span class="normal">383</span>
+<span class="normal">384</span>
+<span class="normal">385</span>
+<span class="normal">386</span>
+<span class="normal">387</span>
+<span class="normal">388</span>
+<span class="normal">389</span>
+<span class="normal">390</span>
+<span class="normal">391</span>
+<span class="normal">392</span>
+<span class="normal">393</span>
+<span class="normal">394</span>
+<span class="normal">395</span>
+<span class="normal">396</span>
+<span class="normal">397</span>
+<span class="normal">398</span>
+<span class="normal">399</span>
+<span class="normal">400</span>
+<span class="normal">401</span>
+<span class="normal">402</span>
+<span class="normal">403</span>
+<span class="normal">404</span>
+<span class="normal">405</span>
+<span class="normal">406</span>
+<span class="normal">407</span>
+<span class="normal">408</span>
+<span class="normal">409</span>
+<span class="normal">410</span>
+<span class="normal">411</span>
+<span class="normal">412</span>
+<span class="normal">413</span>
+<span class="normal">414</span>
+<span class="normal">415</span>
+<span class="normal">416</span>
+<span class="normal">417</span>
+<span class="normal">418</span>
+<span class="normal">419</span>
+<span class="normal">420</span>
+<span class="normal">421</span>
+<span class="normal">422</span>
+<span class="normal">423</span>
+<span class="normal">424</span>
+<span class="normal">425</span>
+<span class="normal">426</span>
+<span class="normal">427</span>
+<span class="normal">428</span>
+<span class="normal">429</span>
+<span class="normal">430</span>
+<span class="normal">431</span>
+<span class="normal">432</span>
+<span class="normal">433</span>
+<span class="normal">434</span>
+<span class="normal">435</span>
+<span class="normal">436</span>
+<span class="normal">437</span>
+<span class="normal">438</span>
+<span class="normal">439</span>
+<span class="normal">440</span>
+<span class="normal">441</span>
+<span class="normal">442</span>
+<span class="normal">443</span>
+<span class="normal">444</span>
+<span class="normal">445</span>
+<span class="normal">446</span>
+<span class="normal">447</span>
+<span class="normal">448</span>
+<span class="normal">449</span>
+<span class="normal">450</span>
+<span class="normal">451</span>
+<span class="normal">452</span>
+<span class="normal">453</span>
+<span class="normal">454</span>
+<span class="normal">455</span>
+<span class="normal">456</span>
+<span class="normal">457</span>
+<span class="normal">458</span>
+<span class="normal">459</span>
+<span class="normal">460</span>
+<span class="normal">461</span>
+<span class="normal">462</span>
+<span class="normal">463</span>
+<span class="normal">464</span>
+<span class="normal">465</span>
+<span class="normal">466</span>
+<span class="normal">467</span>
+<span class="normal">468</span>
+<span class="normal">469</span>
+<span class="normal">470</span>
+<span class="normal">471</span>
+<span class="normal">472</span>
+<span class="normal">473</span>
+<span class="normal">474</span>
+<span class="normal">475</span>
+<span class="normal">476</span>
+<span class="normal">477</span>
+<span class="normal">478</span>
+<span class="normal">479</span>
+<span class="normal">480</span>
+<span class="normal">481</span>
+<span class="normal">482</span>
+<span class="normal">483</span>
+<span class="normal">484</span>
+<span class="normal">485</span>
+<span class="normal">486</span>
+<span class="normal">487</span>
+<span class="normal">488</span>
+<span class="normal">489</span>
+<span class="normal">490</span>
+<span class="normal">491</span>
+<span class="normal">492</span>
+<span class="normal">493</span>
+<span class="normal">494</span>
+<span class="normal">495</span>
+<span class="normal">496</span>
+<span class="normal">497</span>
+<span class="normal">498</span>
+<span class="normal">499</span>
+<span class="normal">500</span>
+<span class="normal">501</span>
+<span class="normal">502</span>
+<span class="normal">503</span>
+<span class="normal">504</span>
+<span class="normal">505</span>
+<span class="normal">506</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">FeatureSelector</span><span class="p">:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class that represents a feature selector.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">    GestosInt (dict): A dictionary mapping gesture names to their corresponding integer values.</span>
+<span class="sd">    IntGestos (dict): A dictionary mapping integer values to their corresponding gesture names.</span>
+<span class="sd">    nombresCarac (list): A list of feature names.</span>
+<span class="sd">    nombresFull (list): A list of feature names with index numbers.</span>
+<span class="sd">    nombresFullIndex (range): A range of index numbers for feature names.</span>
+<span class="sd">    IntGestosFull (dict): A dictionary mapping index numbers to feature names.</span>
+
+<span class="sd">    Methods:</span>
+<span class="sd">    __init__(): Initializes the FeatureSelector object.</span>
+<span class="sd">    calcular_fft(señal): Calculates the Fast Fourier Transform (FFT) of a signal.</span>
+<span class="sd">    graficarPCA(strP): Generates a 3D scatter plot using PCA data.</span>
+<span class="sd">    clustering(dataSet): Clusters the given dataset based on a specified feature.</span>
+<span class="sd">    plot_matrix(data, titulo): Plots a matrix of features with a given title.</span>
+<span class="sd">    getRMS(senal): Calculates the root mean square (RMS) of a signal.</span>
+<span class="sd">    getSTD(senal): Calculates the standard deviation of a signal.</span>
+<span class="sd">    getVarianza(senal): Calculates the variance of a signal.</span>
+<span class="sd">    getMAV(senal): Calculates the Mean Absolute Value (MAV) of a signal.</span>
+<span class="sd">    getWL(senal): Calculates the waveform length (WL) of a signal.</span>
+<span class="sd">    getPromedio(senal): Calculates the average of a signal.</span>
+<span class="sd">    zero_crossing_count(signal): Counts the number of zero crossings in a signal.</span>
+<span class="sd">    calculate_kurtosis(signal): Calculates the kurtosis of a signal.</span>
+<span class="sd">    calculate_skewness(signal): Calculates the skewness of a signal.</span>
+<span class="sd">    getIemg(signal): Calculates the Integrated EMG (IEMG) of a signal.</span>
+<span class="sd">    getSSC(signal): Calculates the number of sign changes in a signal.</span>
+<span class="sd">    getWAMP(signal): Calculates the Willison amplitude in a signal.</span>
+<span class="sd">    getMAS(signal_data): Calculates the frequency with the highest amplitude (MAS) using the Fast Fourier Transform (FFT).</span>
+<span class="sd">    getMP(signal): Calculates the average power spectrum using the Welch method.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Initializes the FeatureSelector class.</span>
+
+<span class="sd">    The FeatureSelector class is used to manage gesture features and their corresponding indices.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">    - GestosInt: A dictionary mapping gesture names to their corresponding indices.</span>
+<span class="sd">    - IntGestos: A dictionary mapping gesture indices to their corresponding names.</span>
+<span class="sd">    - nombresCarac: A list of gesture names.</span>
+<span class="sd">    - nombresFull: A list of gesture names with index numbers appended.</span>
+<span class="sd">    - nombresFullIndex: A range of index numbers for the gesture names.</span>
+<span class="sd">    - IntGestosFull: A dictionary mapping index numbers to gesture names with index numbers appended.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">GestosInt</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s2">&quot;RMS&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;STD&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Varianza&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;MAV&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;WL&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;Promedio&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;ZC&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;kurtosis&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;skewness&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+      <span class="s2">&quot;iEMG&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;SSC&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;WAMP&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s2">&quot;MAS&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;MP&quot;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span> <span class="s2">&quot;MDF&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span> <span class="s2">&quot;MNF&quot;</span><span class="p">:</span> <span class="mi">15</span>
+    <span class="p">}</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">IntGestos</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;RMS&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;STD&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;Varianza&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;MAV&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;WL&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="s2">&quot;Promedio&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span> <span class="s2">&quot;ZC&quot;</span><span class="p">,</span> <span class="mi">7</span><span class="p">:</span> <span class="s2">&quot;kurtosis&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">:</span> <span class="s2">&quot;skewness&quot;</span><span class="p">,</span>
+      <span class="mi">9</span><span class="p">:</span> <span class="s2">&quot;iEMG&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span> <span class="s2">&quot;SSC&quot;</span><span class="p">,</span> <span class="mi">11</span><span class="p">:</span> <span class="s2">&quot;WAMP&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">:</span> <span class="s2">&quot;MAS&quot;</span><span class="p">,</span> <span class="mi">13</span><span class="p">:</span> <span class="s2">&quot;MP&quot;</span><span class="p">,</span> <span class="mi">14</span><span class="p">:</span> <span class="s2">&quot;MDF&quot;</span><span class="p">,</span> <span class="mi">15</span><span class="p">:</span> <span class="s2">&quot;MNF&quot;</span>
+    <span class="p">}</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">nombresCarac</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;RMS&quot;</span><span class="p">,</span> <span class="s2">&quot;STD&quot;</span><span class="p">,</span> <span class="s2">&quot;Varianza&quot;</span><span class="p">,</span> <span class="s2">&quot;MAV&quot;</span><span class="p">,</span> <span class="s2">&quot;WL&quot;</span><span class="p">,</span> <span class="s2">&quot;Promedio&quot;</span><span class="p">,</span> <span class="s2">&quot;ZC&quot;</span><span class="p">,</span> <span class="s2">&quot;kurtosis&quot;</span><span class="p">,</span> <span class="s2">&quot;skewness&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iEMG&quot;</span><span class="p">,</span> <span class="s2">&quot;SSC&quot;</span><span class="p">,</span> <span class="s2">&quot;WAMP&quot;</span><span class="p">,</span> <span class="s2">&quot;MAS&quot;</span><span class="p">,</span> <span class="s2">&quot;MP&quot;</span><span class="p">,</span> <span class="s2">&quot;MDF&quot;</span><span class="p">,</span> <span class="s2">&quot;MNF&quot;</span><span class="p">]</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">nombresFull</span> <span class="o">=</span> <span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nombresCarac</span><span class="p">]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">nombresFullIndex</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nombresCarac</span><span class="p">))</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">IntGestosFull</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nombresFullIndex</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nombresFull</span><span class="p">))</span>
+
+  <span class="k">def</span> <span class="nf">calcular_fft</span><span class="p">(</span><span class="n">señal</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calcula la Transformada Rápida de Fourier (FFT) de una señal.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    señal (array-like): La señal de entrada.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    array-like: El resultado de la FFT aplicada a la señal.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Aplicar la FFT a la señal</span>
+    <span class="n">fft_resultado</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">señal</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">fft_resultado</span>
+
+  <span class="k">def</span> <span class="nf">graficarPCA</span><span class="p">(</span><span class="n">strP</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generates a 3D scatter plot using PCA data.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    strP (list): A list of numpy arrays containing the PCA data for each feature.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">simbolos</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;circle&#39;</span><span class="p">,</span> <span class="s1">&#39;circle-open&#39;</span><span class="p">,</span> <span class="s1">&#39;cross&#39;</span><span class="p">,</span> <span class="s1">&#39;diamond&#39;</span><span class="p">,</span><span class="s1">&#39;diamond-open&#39;</span><span class="p">,</span> <span class="s1">&#39;square&#39;</span><span class="p">,</span> <span class="s1">&#39;square-open&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">]</span>
+    <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;rgba(0, 255, 255, 0.5)&#39;</span><span class="p">,</span><span class="s1">&#39;rgba(255, 0, 0, 0.5)&#39;</span><span class="p">,</span><span class="s1">&#39;rgba(0, 0,255, 0.5)&#39;</span><span class="p">,</span><span class="s1">&#39;rgba(0, 255, 0, 0.5)&#39;</span><span class="p">,</span><span class="s1">&#39;rgba(255, 255, 0, 0.5)&#39;</span><span class="p">]</span>
+    <span class="n">nombres</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;CH&quot;</span><span class="p">,</span><span class="s2">&quot;TIP&quot;</span><span class="p">,</span><span class="s2">&quot;TMP&quot;</span><span class="p">,</span><span class="s2">&quot;TRP&quot;</span><span class="p">,</span><span class="s2">&quot;TPP&quot;</span><span class="p">]</span>
+
+    <span class="c1"># Creating the 3D scatter plot</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span>
+      <span class="n">data</span><span class="o">=</span><span class="n">strP</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+      <span class="n">xdata</span><span class="o">=</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+      <span class="n">ydata</span><span class="o">=</span><span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+      <span class="n">zdata</span><span class="o">=</span><span class="n">data</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+      <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter3d</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">xdata</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">ydata</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="n">zdata</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">symbol</span><span class="o">=</span><span class="n">simbolos</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">name</span><span class="o">=</span><span class="n">nombres</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+
+    <span class="c1"># Customizing the layout</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;3D Scatter Plot Example&#39;</span><span class="p">,</span>
+                    <span class="n">scene</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">xaxis_title</span><span class="o">=</span><span class="s1">&#39;x axis&#39;</span><span class="p">,</span> <span class="n">yaxis_title</span><span class="o">=</span><span class="s1">&#39;y axis&#39;</span><span class="p">,</span> <span class="n">zaxis_title</span><span class="o">=</span><span class="s1">&#39;z axis&#39;</span><span class="p">),</span>
+                    <span class="n">showlegend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+  <span class="k">def</span> <span class="nf">clustering</span><span class="p">(</span><span class="n">dataSet</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Clusters the given dataset based on a specified feature.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    dataSet (DataFrame): The dataset to be clustered.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    dict: A dictionary containing the clustered datasets, where the keys are the distinct values of the specified feature.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">valy</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span>
+
+    <span class="n">estructuras</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">caracteristica</span><span class="p">,</span> <span class="n">grupo</span> <span class="ow">in</span> <span class="n">dataSet</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">valy</span><span class="p">):</span>
+      <span class="n">estructuras</span><span class="p">[</span><span class="n">caracteristica</span><span class="p">]</span> <span class="o">=</span> <span class="n">grupo</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">valy</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">estructuras</span>
+
+  <span class="k">def</span> <span class="nf">plot_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">titulo</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plots a matrix of feature with a given title.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">      data (list): A list of 128 data points.</span>
+<span class="sd">      titulo (str): The title of the plot.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">      ValueError: If the length of the data is not equal to 128.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">      None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">128</span><span class="p">:</span>
+      <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Es necesario recibir 128 caracteristicas&quot;</span><span class="p">)</span>
+
+    <span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Values&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">titulo</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Caracteristicas&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Canales&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">16</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">nombresCarac</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+  <span class="c1"># RMS (Root Mean Square)</span>
+  <span class="k">def</span> <span class="nf">getRMS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">senal</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the root mean square (RMS) of a given signal.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - senal: numpy array</span>
+<span class="sd">      The input signal.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    - float</span>
+<span class="sd">      The root mean square (RMS) value of the signal.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">senal</span><span class="p">)))</span>
+
+  <span class="c1"># Desviación estándar</span>
+  <span class="k">def</span> <span class="nf">getSTD</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">senal</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the standard deviation of a given signal.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - senal: A numpy array or list representing the signal.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    - The standard deviation of the signal.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">    &gt;&gt;&gt; signal = [1, 2, 3, 4, 5]</span>
+<span class="sd">    &gt;&gt;&gt; getSTD(signal)</span>
+<span class="sd">    1.4142135623730951</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">senal</span><span class="p">)</span>
+
+  <span class="c1"># Varianza</span>
+  <span class="k">def</span> <span class="nf">getVarianza</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">senal</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the variance of a given signal.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - senal: numpy array or list</span>
+<span class="sd">      The input signal for which the variance needs to be calculated.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    - float</span>
+<span class="sd">      The variance of the input signal.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">senal</span><span class="p">)</span>
+
+  <span class="c1"># MAV (Mean Absolute Value)</span>
+  <span class="k">def</span> <span class="nf">getMAV</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">senal</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the Mean Absolute Value (MAV) of a given signal.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - senal: numpy array or list</span>
+<span class="sd">      The input signal for which MAV needs to be calculated.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    - float</span>
+<span class="sd">      The calculated MAV value.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">senal</span><span class="p">))</span>
+
+  <span class="c1"># WL (Waveform Length)</span>
+  <span class="k">def</span> <span class="nf">getWL</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">senal</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the waveform length (WL) of a given signal.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - senal: numpy array</span>
+<span class="sd">      The input signal.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    - wl: float</span>
+<span class="sd">      The waveform length of the input signal.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">senal</span><span class="p">)))</span>
+
+  <span class="c1"># Promedio</span>
+  <span class="k">def</span> <span class="nf">getPromedio</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">senal</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the average of a given signal.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - senal: A numpy array representing the signal.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    - The average value of the signal.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">senal</span><span class="p">)</span>
+
+  <span class="c1"># ZC (zero crossing)</span>
+  <span class="k">def</span> <span class="nf">zero_crossing_count</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">signal</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the number of zero crossings in a given signal.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    signal (list): The input signal.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    int: The number of zero crossings in the signal.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">signal</span><span class="p">)):</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">signal</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">signal</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">signal</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">signal</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">count</span>
+
+  <span class="c1"># KURT (kurtosis)</span>
+  <span class="k">def</span> <span class="nf">calculate_kurtosis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">signal</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the kurtosis of a given signal.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    signal (array-like): The input signal.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    float: The kurtosis value of the signal.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">kurtosis</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">kurtosis</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">kurtosis</span>
+
+  <span class="c1"># SKEW  (skewness)</span>
+  <span class="k">def</span> <span class="nf">calculate_skewness</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">signal</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the skewness of a given signal.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    signal (array-like): The input signal.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    float: The skewness value of the signal.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">skewness</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">skew</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">skewness</span>
+
+  <span class="c1">#iEMG</span>
+  <span class="k">def</span> <span class="nf">getIemg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">signal</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the Integrated EMG (IEMG) of a given signal.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    signal (array-like): The input signal.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    float: The Integrated EMG value.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
+
+  <span class="c1">#SSC (slope sign change)</span>
+  <span class="k">def</span> <span class="nf">getSSC</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">signal</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the number of sign changes in a given signal.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    signal (list): The input signal.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    int: The number of sign changes in the signal.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sign_changes</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># contador de cambios de signo</span>
+    <span class="n">prev_sign</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># signo previo</span>
+
+    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">signal</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">prev_sign</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+          <span class="n">sign_changes</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">prev_sign</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+      <span class="k">elif</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">prev_sign</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+          <span class="n">sign_changes</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">prev_sign</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">sign_changes</span>
+
+  <span class="c1">#WAMP  willison amp</span>
+  <span class="k">def</span> <span class="nf">getWAMP</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">signal</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the Willinson amplitude of the given signal.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    signal (list): The input signal.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    int: The Waveform Length of the signal.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">wa</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">signal</span><span class="p">)):</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">signal</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">signal</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">wa</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">wa</span>
+
+
+  <span class="c1">#******************************</span>
+  <span class="c1">#Dominio de la frecuencia</span>
+
+  <span class="c1">#Amplitud máxima (MAS)</span>
+  <span class="k">def</span> <span class="nf">getMAS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">signal_data</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the Most Amplitude Spectrum (MAS) of a given signal.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    signal_data (array-like): The input signal data.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    float: The frequency with the highest amplitude in the signal.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fs</span> <span class="o">=</span> <span class="mi">200</span>
+    <span class="n">fft_result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">signal_data</span><span class="p">)</span>
+    <span class="n">frequencies</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">signal_data</span><span class="p">),</span> <span class="mi">1</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span>
+
+    <span class="c1"># Find the frequency with the highest amplitude (peak)</span>
+    <span class="n">mas</span> <span class="o">=</span> <span class="n">frequencies</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fft_result</span><span class="p">))]</span>
+
+    <span class="k">return</span> <span class="n">mas</span>
+
+  <span class="c1">#Espectro de potencia promedio (MP)</span>
+  <span class="k">def</span> <span class="nf">getMP</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">signal</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the average power spectrum using the Welch method.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    signal (array-like): The input signal.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    float: The average power spectrum.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fs</span> <span class="o">=</span> <span class="mi">200</span>
+    <span class="n">f</span><span class="p">,</span> <span class="n">Pxx</span> <span class="o">=</span> <span class="n">welch</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span>
+
+    <span class="c1"># Calculate the average power spectrum</span>
+    <span class="n">espectro_promedio</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Pxx</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">espectro_promedio</span>
+
+    <span class="c1">#Mediana de la frecuencia (MDF)</span>
+  <span class="k">def</span> <span class="nf">getMDF</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">signal</span><span class="p">):</span>
+<span class="w">      </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">      Calculate the Median Frequency (MDF) of a given signal.</span>
+
+<span class="sd">      Parameters:</span>
+<span class="sd">      signal (array-like): The input signal.</span>
+
+<span class="sd">      Returns:</span>
+<span class="sd">      float: The median frequency of the signal.</span>
+<span class="sd">      &quot;&quot;&quot;</span>
+
+      <span class="n">fft_signal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
+      <span class="n">magnitude</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fft_signal</span><span class="p">)</span>
+      <span class="n">median_frequency</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">magnitude</span><span class="p">)</span>
+
+      <span class="k">return</span> <span class="n">median_frequency</span>
+
+    <span class="c1">#Promedio de la frecuencia (MNF)</span>
+  <span class="k">def</span> <span class="nf">getMNF</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">signal</span><span class="p">):</span>
+<span class="w">      </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">      Calculate the mean normalized frequency of a given signal.</span>
+
+<span class="sd">      Parameters:</span>
+<span class="sd">      signal (array-like): The input signal.</span>
+
+<span class="sd">      Returns:</span>
+<span class="sd">      float: The mean normalized frequency of the signal.</span>
+<span class="sd">      &quot;&quot;&quot;</span>
+
+      <span class="n">fft_signal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
+      <span class="n">magnitude</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fft_signal</span><span class="p">)</span>
+      <span class="n">mean_frequency</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">magnitude</span><span class="p">)</span>
+
+      <span class="k">return</span> <span class="n">mean_frequency</span>
+
+  <span class="c1">#Descomposición completa</span>
+  <span class="k">def</span> <span class="nf">descomposicion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">senal</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function takes a signal as input and applies a list of functions to decompose the signal into its features.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - senal: The input signal to be decomposed.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    - A list of decomposed features of the input signal.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">listaCaracteristicas</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">getRMS</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getSTD</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">getVarianza</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">getMAV</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">getWL</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPromedio</span><span class="p">,</span>
+                          <span class="bp">self</span><span class="o">.</span><span class="n">zero_crossing_count</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_kurtosis</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_skewness</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getIemg</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getSSC</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getWAMP</span><span class="p">,</span>
+                          <span class="bp">self</span><span class="o">.</span><span class="n">getMAS</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getMP</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getMDF</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getMNF</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">funcion</span><span class="p">(</span><span class="n">senal</span><span class="p">)</span> <span class="k">for</span> <span class="n">funcion</span> <span class="ow">in</span> <span class="n">listaCaracteristicas</span><span class="p">]</span>
+
+
+  <span class="k">def</span> <span class="nf">caracterizar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">df</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Caracterizes the given DataFrame by extracting windows from each signal.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    df (DataFrame): The input DataFrame containing signals.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    DataFrame: A new DataFrame containing the extracted windows.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Crear una lista vacía</span>
+    <span class="n">ventanas</span><span class="o">=</span><span class="p">[]</span>
+
+    <span class="c1"># Iterar a través de las señales y extraer las ventanas</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)):</span>
+      <span class="n">fila</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+      <span class="n">ventanas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">descomposicion</span><span class="p">(</span><span class="n">fila</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ventanas</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="bloques.featureSelector.FeatureSelector.__init__" class="doc doc-heading">
+          <code class="highlight language-python"><span class="fm">__init__</span><span class="p">()</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Initializes the FeatureSelector class.</p>
+<p>The FeatureSelector class is used to manage gesture features and their corresponding indices.</p>
+<p>Attributes:
+- GestosInt: A dictionary mapping gesture names to their corresponding indices.
+- IntGestos: A dictionary mapping gesture indices to their corresponding names.
+- nombresCarac: A list of gesture names.
+- nombresFull: A list of gesture names with index numbers appended.
+- nombresFullIndex: A range of index numbers for the gesture names.
+- IntGestosFull: A dictionary mapping index numbers to gesture names with index numbers appended.</p>
+
+          <details class="quote">
+            <summary>Source code in <code>bloques\featureSelector.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Initializes the FeatureSelector class.</span>
+
+<span class="sd">  The FeatureSelector class is used to manage gesture features and their corresponding indices.</span>
+
+<span class="sd">  Attributes:</span>
+<span class="sd">  - GestosInt: A dictionary mapping gesture names to their corresponding indices.</span>
+<span class="sd">  - IntGestos: A dictionary mapping gesture indices to their corresponding names.</span>
+<span class="sd">  - nombresCarac: A list of gesture names.</span>
+<span class="sd">  - nombresFull: A list of gesture names with index numbers appended.</span>
+<span class="sd">  - nombresFullIndex: A range of index numbers for the gesture names.</span>
+<span class="sd">  - IntGestosFull: A dictionary mapping index numbers to gesture names with index numbers appended.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="bp">self</span><span class="o">.</span><span class="n">GestosInt</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;RMS&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;STD&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Varianza&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;MAV&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;WL&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;Promedio&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;ZC&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;kurtosis&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;skewness&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+    <span class="s2">&quot;iEMG&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;SSC&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;WAMP&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s2">&quot;MAS&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;MP&quot;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span> <span class="s2">&quot;MDF&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span> <span class="s2">&quot;MNF&quot;</span><span class="p">:</span> <span class="mi">15</span>
+  <span class="p">}</span>
+
+  <span class="bp">self</span><span class="o">.</span><span class="n">IntGestos</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;RMS&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;STD&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;Varianza&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;MAV&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;WL&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="s2">&quot;Promedio&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span> <span class="s2">&quot;ZC&quot;</span><span class="p">,</span> <span class="mi">7</span><span class="p">:</span> <span class="s2">&quot;kurtosis&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">:</span> <span class="s2">&quot;skewness&quot;</span><span class="p">,</span>
+    <span class="mi">9</span><span class="p">:</span> <span class="s2">&quot;iEMG&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span> <span class="s2">&quot;SSC&quot;</span><span class="p">,</span> <span class="mi">11</span><span class="p">:</span> <span class="s2">&quot;WAMP&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">:</span> <span class="s2">&quot;MAS&quot;</span><span class="p">,</span> <span class="mi">13</span><span class="p">:</span> <span class="s2">&quot;MP&quot;</span><span class="p">,</span> <span class="mi">14</span><span class="p">:</span> <span class="s2">&quot;MDF&quot;</span><span class="p">,</span> <span class="mi">15</span><span class="p">:</span> <span class="s2">&quot;MNF&quot;</span>
+  <span class="p">}</span>
+
+  <span class="bp">self</span><span class="o">.</span><span class="n">nombresCarac</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;RMS&quot;</span><span class="p">,</span> <span class="s2">&quot;STD&quot;</span><span class="p">,</span> <span class="s2">&quot;Varianza&quot;</span><span class="p">,</span> <span class="s2">&quot;MAV&quot;</span><span class="p">,</span> <span class="s2">&quot;WL&quot;</span><span class="p">,</span> <span class="s2">&quot;Promedio&quot;</span><span class="p">,</span> <span class="s2">&quot;ZC&quot;</span><span class="p">,</span> <span class="s2">&quot;kurtosis&quot;</span><span class="p">,</span> <span class="s2">&quot;skewness&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;iEMG&quot;</span><span class="p">,</span> <span class="s2">&quot;SSC&quot;</span><span class="p">,</span> <span class="s2">&quot;WAMP&quot;</span><span class="p">,</span> <span class="s2">&quot;MAS&quot;</span><span class="p">,</span> <span class="s2">&quot;MP&quot;</span><span class="p">,</span> <span class="s2">&quot;MDF&quot;</span><span class="p">,</span> <span class="s2">&quot;MNF&quot;</span><span class="p">]</span>
+
+  <span class="bp">self</span><span class="o">.</span><span class="n">nombresFull</span> <span class="o">=</span> <span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nombresCarac</span><span class="p">]</span>
+  <span class="bp">self</span><span class="o">.</span><span class="n">nombresFullIndex</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nombresCarac</span><span class="p">))</span>
+
+  <span class="bp">self</span><span class="o">.</span><span class="n">IntGestosFull</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nombresFullIndex</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nombresFull</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="bloques.featureSelector.FeatureSelector.calcular_fft" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">calcular_fft</span><span class="p">(</span><span class="n">señal</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Calcula la Transformada Rápida de Fourier (FFT) de una señal.</p>
+<p>Parameters:
+señal (array-like): La señal de entrada.</p>
+<p>Returns:
+array-like: El resultado de la FFT aplicada a la señal.</p>
+
+          <details class="quote">
+            <summary>Source code in <code>bloques\featureSelector.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">calcular_fft</span><span class="p">(</span><span class="n">señal</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Calcula la Transformada Rápida de Fourier (FFT) de una señal.</span>
+
+<span class="sd">  Parameters:</span>
+<span class="sd">  señal (array-like): La señal de entrada.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">  array-like: El resultado de la FFT aplicada a la señal.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="c1"># Aplicar la FFT a la señal</span>
+  <span class="n">fft_resultado</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">señal</span><span class="p">)</span>
+
+  <span class="k">return</span> <span class="n">fft_resultado</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="bloques.featureSelector.FeatureSelector.calculate_kurtosis" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">calculate_kurtosis</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Calculate the kurtosis of a given signal.</p>
+<p>Parameters:
+signal (array-like): The input signal.</p>
+<p>Returns:
+float: The kurtosis value of the signal.</p>
+
+          <details class="quote">
+            <summary>Source code in <code>bloques\featureSelector.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">calculate_kurtosis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">signal</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Calculate the kurtosis of a given signal.</span>
+
+<span class="sd">  Parameters:</span>
+<span class="sd">  signal (array-like): The input signal.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">  float: The kurtosis value of the signal.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">kurtosis</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">kurtosis</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">kurtosis</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="bloques.featureSelector.FeatureSelector.calculate_skewness" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">calculate_skewness</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Calculate the skewness of a given signal.</p>
+<p>Parameters:
+signal (array-like): The input signal.</p>
+<p>Returns:
+float: The skewness value of the signal.</p>
+
+          <details class="quote">
+            <summary>Source code in <code>bloques\featureSelector.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">calculate_skewness</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">signal</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Calculate the skewness of a given signal.</span>
+
+<span class="sd">  Parameters:</span>
+<span class="sd">  signal (array-like): The input signal.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">  float: The skewness value of the signal.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">skewness</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">skew</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">skewness</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="bloques.featureSelector.FeatureSelector.caracterizar" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">caracterizar</span><span class="p">(</span><span class="n">df</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Caracterizes the given DataFrame by extracting windows from each signal.</p>
+<p>Parameters:
+df (DataFrame): The input DataFrame containing signals.</p>
+<p>Returns:
+DataFrame: A new DataFrame containing the extracted windows.</p>
+
+          <details class="quote">
+            <summary>Source code in <code>bloques\featureSelector.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">487</span>
+<span class="normal">488</span>
+<span class="normal">489</span>
+<span class="normal">490</span>
+<span class="normal">491</span>
+<span class="normal">492</span>
+<span class="normal">493</span>
+<span class="normal">494</span>
+<span class="normal">495</span>
+<span class="normal">496</span>
+<span class="normal">497</span>
+<span class="normal">498</span>
+<span class="normal">499</span>
+<span class="normal">500</span>
+<span class="normal">501</span>
+<span class="normal">502</span>
+<span class="normal">503</span>
+<span class="normal">504</span>
+<span class="normal">505</span>
+<span class="normal">506</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">caracterizar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">df</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Caracterizes the given DataFrame by extracting windows from each signal.</span>
+
+<span class="sd">  Parameters:</span>
+<span class="sd">  df (DataFrame): The input DataFrame containing signals.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">  DataFrame: A new DataFrame containing the extracted windows.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+
+  <span class="c1"># Crear una lista vacía</span>
+  <span class="n">ventanas</span><span class="o">=</span><span class="p">[]</span>
+
+  <span class="c1"># Iterar a través de las señales y extraer las ventanas</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)):</span>
+    <span class="n">fila</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">ventanas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">descomposicion</span><span class="p">(</span><span class="n">fila</span><span class="p">))</span>
+
+  <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ventanas</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="bloques.featureSelector.FeatureSelector.clustering" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">clustering</span><span class="p">(</span><span class="n">dataSet</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Clusters the given dataset based on a specified feature.</p>
+<p>Parameters:
+dataSet (DataFrame): The dataset to be clustered.</p>
+<p>Returns:
+dict: A dictionary containing the clustered datasets, where the keys are the distinct values of the specified feature.</p>
+
+          <details class="quote">
+            <summary>Source code in <code>bloques\featureSelector.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">clustering</span><span class="p">(</span><span class="n">dataSet</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Clusters the given dataset based on a specified feature.</span>
+
+<span class="sd">  Parameters:</span>
+<span class="sd">  dataSet (DataFrame): The dataset to be clustered.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">  dict: A dictionary containing the clustered datasets, where the keys are the distinct values of the specified feature.</span>
+
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">valy</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span>
+
+  <span class="n">estructuras</span> <span class="o">=</span> <span class="p">{}</span>
+  <span class="k">for</span> <span class="n">caracteristica</span><span class="p">,</span> <span class="n">grupo</span> <span class="ow">in</span> <span class="n">dataSet</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">valy</span><span class="p">):</span>
+    <span class="n">estructuras</span><span class="p">[</span><span class="n">caracteristica</span><span class="p">]</span> <span class="o">=</span> <span class="n">grupo</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">valy</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+  <span class="k">return</span> <span class="n">estructuras</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="bloques.featureSelector.FeatureSelector.descomposicion" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">descomposicion</span><span class="p">(</span><span class="n">senal</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>This function takes a signal as input and applies a list of functions to decompose the signal into its features.</p>
+<p>Parameters:
+- senal: The input signal to be decomposed.</p>
+<p>Returns:
+- A list of decomposed features of the input signal.</p>
+
+          <details class="quote">
+            <summary>Source code in <code>bloques\featureSelector.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">470</span>
+<span class="normal">471</span>
+<span class="normal">472</span>
+<span class="normal">473</span>
+<span class="normal">474</span>
+<span class="normal">475</span>
+<span class="normal">476</span>
+<span class="normal">477</span>
+<span class="normal">478</span>
+<span class="normal">479</span>
+<span class="normal">480</span>
+<span class="normal">481</span>
+<span class="normal">482</span>
+<span class="normal">483</span>
+<span class="normal">484</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">descomposicion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">senal</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  This function takes a signal as input and applies a list of functions to decompose the signal into its features.</span>
+
+<span class="sd">  Parameters:</span>
+<span class="sd">  - senal: The input signal to be decomposed.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">  - A list of decomposed features of the input signal.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">listaCaracteristicas</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">getRMS</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getSTD</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">getVarianza</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">getMAV</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">getWL</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPromedio</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">zero_crossing_count</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_kurtosis</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_skewness</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getIemg</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getSSC</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getWAMP</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">getMAS</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getMP</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getMDF</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getMNF</span><span class="p">]</span>
+
+  <span class="k">return</span> <span class="p">[</span><span class="n">funcion</span><span class="p">(</span><span class="n">senal</span><span class="p">)</span> <span class="k">for</span> <span class="n">funcion</span> <span class="ow">in</span> <span class="n">listaCaracteristicas</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="bloques.featureSelector.FeatureSelector.getIemg" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">getIemg</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Calculates the Integrated EMG (IEMG) of a given signal.</p>
+<p>Parameters:
+signal (array-like): The input signal.</p>
+<p>Returns:
+float: The Integrated EMG value.</p>
+
+          <details class="quote">
+            <summary>Source code in <code>bloques\featureSelector.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span>
+<span class="normal">333</span>
+<span class="normal">334</span>
+<span class="normal">335</span>
+<span class="normal">336</span>
+<span class="normal">337</span>
+<span class="normal">338</span>
+<span class="normal">339</span>
+<span class="normal">340</span>
+<span class="normal">341</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">getIemg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">signal</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Calculates the Integrated EMG (IEMG) of a given signal.</span>
+
+<span class="sd">  Parameters:</span>
+<span class="sd">  signal (array-like): The input signal.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">  float: The Integrated EMG value.</span>
+
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="bloques.featureSelector.FeatureSelector.getMAS" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">getMAS</span><span class="p">(</span><span class="n">signal_data</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Calculates the Most Amplitude Spectrum (MAS) of a given signal.</p>
+<p>Parameters:
+signal_data (array-like): The input signal data.</p>
+<p>Returns:
+float: The frequency with the highest amplitude in the signal.</p>
+
+          <details class="quote">
+            <summary>Source code in <code>bloques\featureSelector.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">393</span>
+<span class="normal">394</span>
+<span class="normal">395</span>
+<span class="normal">396</span>
+<span class="normal">397</span>
+<span class="normal">398</span>
+<span class="normal">399</span>
+<span class="normal">400</span>
+<span class="normal">401</span>
+<span class="normal">402</span>
+<span class="normal">403</span>
+<span class="normal">404</span>
+<span class="normal">405</span>
+<span class="normal">406</span>
+<span class="normal">407</span>
+<span class="normal">408</span>
+<span class="normal">409</span>
+<span class="normal">410</span>
+<span class="normal">411</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">getMAS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">signal_data</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Calculates the Most Amplitude Spectrum (MAS) of a given signal.</span>
+
+<span class="sd">  Parameters:</span>
+<span class="sd">  signal_data (array-like): The input signal data.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">  float: The frequency with the highest amplitude in the signal.</span>
+
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">fs</span> <span class="o">=</span> <span class="mi">200</span>
+  <span class="n">fft_result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">signal_data</span><span class="p">)</span>
+  <span class="n">frequencies</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">signal_data</span><span class="p">),</span> <span class="mi">1</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span>
+
+  <span class="c1"># Find the frequency with the highest amplitude (peak)</span>
+  <span class="n">mas</span> <span class="o">=</span> <span class="n">frequencies</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fft_result</span><span class="p">))]</span>
+
+  <span class="k">return</span> <span class="n">mas</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="bloques.featureSelector.FeatureSelector.getMAV" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">getMAV</span><span class="p">(</span><span class="n">senal</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Calculates the Mean Absolute Value (MAV) of a given signal.</p>
+      <ul>
+<li>senal: numpy array or list
+  The input signal for which MAV needs to be calculated.</li>
+</ul>
+      <ul>
+<li>float
+  The calculated MAV value.</li>
+</ul>
+
+          <details class="quote">
+            <summary>Source code in <code>bloques\featureSelector.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">getMAV</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">senal</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Calculates the Mean Absolute Value (MAV) of a given signal.</span>
+
+<span class="sd">  Parameters:</span>
+<span class="sd">  - senal: numpy array or list</span>
+<span class="sd">    The input signal for which MAV needs to be calculated.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">  - float</span>
+<span class="sd">    The calculated MAV value.</span>
+
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">senal</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="bloques.featureSelector.FeatureSelector.getMDF" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">getMDF</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Calculate the Median Frequency (MDF) of a given signal.</p>
+<p>Parameters:
+signal (array-like): The input signal.</p>
+<p>Returns:
+float: The median frequency of the signal.</p>
+
+          <details class="quote">
+            <summary>Source code in <code>bloques\featureSelector.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">434</span>
+<span class="normal">435</span>
+<span class="normal">436</span>
+<span class="normal">437</span>
+<span class="normal">438</span>
+<span class="normal">439</span>
+<span class="normal">440</span>
+<span class="normal">441</span>
+<span class="normal">442</span>
+<span class="normal">443</span>
+<span class="normal">444</span>
+<span class="normal">445</span>
+<span class="normal">446</span>
+<span class="normal">447</span>
+<span class="normal">448</span>
+<span class="normal">449</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">getMDF</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">signal</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the Median Frequency (MDF) of a given signal.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    signal (array-like): The input signal.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    float: The median frequency of the signal.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">fft_signal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
+    <span class="n">magnitude</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fft_signal</span><span class="p">)</span>
+    <span class="n">median_frequency</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">magnitude</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">median_frequency</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="bloques.featureSelector.FeatureSelector.getMNF" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">getMNF</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Calculate the mean normalized frequency of a given signal.</p>
+<p>Parameters:
+signal (array-like): The input signal.</p>
+<p>Returns:
+float: The mean normalized frequency of the signal.</p>
+
+          <details class="quote">
+            <summary>Source code in <code>bloques\featureSelector.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">452</span>
+<span class="normal">453</span>
+<span class="normal">454</span>
+<span class="normal">455</span>
+<span class="normal">456</span>
+<span class="normal">457</span>
+<span class="normal">458</span>
+<span class="normal">459</span>
+<span class="normal">460</span>
+<span class="normal">461</span>
+<span class="normal">462</span>
+<span class="normal">463</span>
+<span class="normal">464</span>
+<span class="normal">465</span>
+<span class="normal">466</span>
+<span class="normal">467</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">getMNF</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">signal</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the mean normalized frequency of a given signal.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    signal (array-like): The input signal.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    float: The mean normalized frequency of the signal.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">fft_signal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
+    <span class="n">magnitude</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fft_signal</span><span class="p">)</span>
+    <span class="n">mean_frequency</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">magnitude</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">mean_frequency</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="bloques.featureSelector.FeatureSelector.getMP" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">getMP</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Calculates the average power spectrum using the Welch method.</p>
+<p>Parameters:
+signal (array-like): The input signal.</p>
+<p>Returns:
+float: The average power spectrum.</p>
+
+          <details class="quote">
+            <summary>Source code in <code>bloques\featureSelector.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">414</span>
+<span class="normal">415</span>
+<span class="normal">416</span>
+<span class="normal">417</span>
+<span class="normal">418</span>
+<span class="normal">419</span>
+<span class="normal">420</span>
+<span class="normal">421</span>
+<span class="normal">422</span>
+<span class="normal">423</span>
+<span class="normal">424</span>
+<span class="normal">425</span>
+<span class="normal">426</span>
+<span class="normal">427</span>
+<span class="normal">428</span>
+<span class="normal">429</span>
+<span class="normal">430</span>
+<span class="normal">431</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">getMP</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">signal</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Calculates the average power spectrum using the Welch method.</span>
+
+<span class="sd">  Parameters:</span>
+<span class="sd">  signal (array-like): The input signal.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">  float: The average power spectrum.</span>
+
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">fs</span> <span class="o">=</span> <span class="mi">200</span>
+  <span class="n">f</span><span class="p">,</span> <span class="n">Pxx</span> <span class="o">=</span> <span class="n">welch</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span>
+
+  <span class="c1"># Calculate the average power spectrum</span>
+  <span class="n">espectro_promedio</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Pxx</span><span class="p">)</span>
+
+  <span class="k">return</span> <span class="n">espectro_promedio</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="bloques.featureSelector.FeatureSelector.getPromedio" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">getPromedio</span><span class="p">(</span><span class="n">senal</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Calculates the average of a given signal.</p>
+<p>Parameters:
+- senal: A numpy array representing the signal.</p>
+<p>Returns:
+- The average value of the signal.</p>
+
+          <details class="quote">
+            <summary>Source code in <code>bloques\featureSelector.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">getPromedio</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">senal</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Calculates the average of a given signal.</span>
+
+<span class="sd">  Parameters:</span>
+<span class="sd">  - senal: A numpy array representing the signal.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">  - The average value of the signal.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">senal</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="bloques.featureSelector.FeatureSelector.getRMS" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">getRMS</span><span class="p">(</span><span class="n">senal</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Calculates the root mean square (RMS) of a given signal.</p>
+      <ul>
+<li>senal: numpy array
+  The input signal.</li>
+</ul>
+      <ul>
+<li>float
+  The root mean square (RMS) value of the signal.</li>
+</ul>
+
+          <details class="quote">
+            <summary>Source code in <code>bloques\featureSelector.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">getRMS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">senal</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Calculates the root mean square (RMS) of a given signal.</span>
+
+<span class="sd">  Parameters:</span>
+<span class="sd">  - senal: numpy array</span>
+<span class="sd">    The input signal.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">  - float</span>
+<span class="sd">    The root mean square (RMS) value of the signal.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">senal</span><span class="p">)))</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="bloques.featureSelector.FeatureSelector.getSSC" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">getSSC</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Calculates the number of sign changes in a given signal.</p>
+<p>Parameters:
+signal (list): The input signal.</p>
+<p>Returns:
+int: The number of sign changes in the signal.</p>
+
+          <details class="quote">
+            <summary>Source code in <code>bloques\featureSelector.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">344</span>
+<span class="normal">345</span>
+<span class="normal">346</span>
+<span class="normal">347</span>
+<span class="normal">348</span>
+<span class="normal">349</span>
+<span class="normal">350</span>
+<span class="normal">351</span>
+<span class="normal">352</span>
+<span class="normal">353</span>
+<span class="normal">354</span>
+<span class="normal">355</span>
+<span class="normal">356</span>
+<span class="normal">357</span>
+<span class="normal">358</span>
+<span class="normal">359</span>
+<span class="normal">360</span>
+<span class="normal">361</span>
+<span class="normal">362</span>
+<span class="normal">363</span>
+<span class="normal">364</span>
+<span class="normal">365</span>
+<span class="normal">366</span>
+<span class="normal">367</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">getSSC</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">signal</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Calculates the number of sign changes in a given signal.</span>
+
+<span class="sd">  Parameters:</span>
+<span class="sd">  signal (list): The input signal.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">  int: The number of sign changes in the signal.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">sign_changes</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># contador de cambios de signo</span>
+  <span class="n">prev_sign</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># signo previo</span>
+
+  <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">signal</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">prev_sign</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">sign_changes</span> <span class="o">+=</span> <span class="mi">1</span>
+      <span class="n">prev_sign</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">prev_sign</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">sign_changes</span> <span class="o">+=</span> <span class="mi">1</span>
+      <span class="n">prev_sign</span> <span class="o">=</span> <span class="mi">1</span>
+
+  <span class="k">return</span> <span class="n">sign_changes</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="bloques.featureSelector.FeatureSelector.getSTD" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">getSTD</span><span class="p">(</span><span class="n">senal</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Calculate the standard deviation of a given signal.</p>
+<p>Parameters:
+- senal: A numpy array or list representing the signal.</p>
+<p>Returns:
+- The standard deviation of the signal.</p>
+<p>Example:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>signal = [1, 2, 3, 4, 5]
+getSTD(signal)
+1.4142135623730951</p>
+</blockquote>
+</blockquote>
+</blockquote>
+
+          <details class="quote">
+            <summary>Source code in <code>bloques\featureSelector.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">getSTD</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">senal</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Calculate the standard deviation of a given signal.</span>
+
+<span class="sd">  Parameters:</span>
+<span class="sd">  - senal: A numpy array or list representing the signal.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">  - The standard deviation of the signal.</span>
+
+<span class="sd">  Example:</span>
+<span class="sd">  &gt;&gt;&gt; signal = [1, 2, 3, 4, 5]</span>
+<span class="sd">  &gt;&gt;&gt; getSTD(signal)</span>
+<span class="sd">  1.4142135623730951</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">senal</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="bloques.featureSelector.FeatureSelector.getVarianza" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">getVarianza</span><span class="p">(</span><span class="n">senal</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Calculate the variance of a given signal.</p>
+      <ul>
+<li>senal: numpy array or list
+  The input signal for which the variance needs to be calculated.</li>
+</ul>
+      <ul>
+<li>float
+  The variance of the input signal.</li>
+</ul>
+
+          <details class="quote">
+            <summary>Source code in <code>bloques\featureSelector.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">getVarianza</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">senal</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Calculate the variance of a given signal.</span>
+
+<span class="sd">  Parameters:</span>
+<span class="sd">  - senal: numpy array or list</span>
+<span class="sd">    The input signal for which the variance needs to be calculated.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">  - float</span>
+<span class="sd">    The variance of the input signal.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">senal</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="bloques.featureSelector.FeatureSelector.getWAMP" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">getWAMP</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Calculates the Willinson amplitude of the given signal.</p>
+<p>Parameters:
+signal (list): The input signal.</p>
+<p>Returns:
+int: The Waveform Length of the signal.</p>
+
+          <details class="quote">
+            <summary>Source code in <code>bloques\featureSelector.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">370</span>
+<span class="normal">371</span>
+<span class="normal">372</span>
+<span class="normal">373</span>
+<span class="normal">374</span>
+<span class="normal">375</span>
+<span class="normal">376</span>
+<span class="normal">377</span>
+<span class="normal">378</span>
+<span class="normal">379</span>
+<span class="normal">380</span>
+<span class="normal">381</span>
+<span class="normal">382</span>
+<span class="normal">383</span>
+<span class="normal">384</span>
+<span class="normal">385</span>
+<span class="normal">386</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">getWAMP</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">signal</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Calculates the Willinson amplitude of the given signal.</span>
+
+<span class="sd">  Parameters:</span>
+<span class="sd">  signal (list): The input signal.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">  int: The Waveform Length of the signal.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">wa</span> <span class="o">=</span> <span class="mi">0</span>
+
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">signal</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">signal</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">signal</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="n">wa</span> <span class="o">+=</span> <span class="mi">1</span>
+
+  <span class="k">return</span> <span class="n">wa</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="bloques.featureSelector.FeatureSelector.getWL" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">getWL</span><span class="p">(</span><span class="n">senal</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Calculates the waveform length (WL) of a given signal.</p>
+      <ul>
+<li>senal: numpy array
+  The input signal.</li>
+</ul>
+      <ul>
+<li>wl: float
+  The waveform length of the input signal.</li>
+</ul>
+
+          <details class="quote">
+            <summary>Source code in <code>bloques\featureSelector.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">getWL</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">senal</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Calculates the waveform length (WL) of a given signal.</span>
+
+<span class="sd">  Parameters:</span>
+<span class="sd">  - senal: numpy array</span>
+<span class="sd">    The input signal.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">  - wl: float</span>
+<span class="sd">    The waveform length of the input signal.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">senal</span><span class="p">)))</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="bloques.featureSelector.FeatureSelector.graficarPCA" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">graficarPCA</span><span class="p">(</span><span class="n">strP</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Generates a 3D scatter plot using PCA data.</p>
+<p>Parameters:
+strP (list): A list of numpy arrays containing the PCA data for each feature.</p>
+<p>Returns:
+None</p>
+
+          <details class="quote">
+            <summary>Source code in <code>bloques\featureSelector.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">graficarPCA</span><span class="p">(</span><span class="n">strP</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Generates a 3D scatter plot using PCA data.</span>
+
+<span class="sd">  Parameters:</span>
+<span class="sd">  strP (list): A list of numpy arrays containing the PCA data for each feature.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">  None</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+
+  <span class="n">simbolos</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;circle&#39;</span><span class="p">,</span> <span class="s1">&#39;circle-open&#39;</span><span class="p">,</span> <span class="s1">&#39;cross&#39;</span><span class="p">,</span> <span class="s1">&#39;diamond&#39;</span><span class="p">,</span><span class="s1">&#39;diamond-open&#39;</span><span class="p">,</span> <span class="s1">&#39;square&#39;</span><span class="p">,</span> <span class="s1">&#39;square-open&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">]</span>
+  <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;rgba(0, 255, 255, 0.5)&#39;</span><span class="p">,</span><span class="s1">&#39;rgba(255, 0, 0, 0.5)&#39;</span><span class="p">,</span><span class="s1">&#39;rgba(0, 0,255, 0.5)&#39;</span><span class="p">,</span><span class="s1">&#39;rgba(0, 255, 0, 0.5)&#39;</span><span class="p">,</span><span class="s1">&#39;rgba(255, 255, 0, 0.5)&#39;</span><span class="p">]</span>
+  <span class="n">nombres</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;CH&quot;</span><span class="p">,</span><span class="s2">&quot;TIP&quot;</span><span class="p">,</span><span class="s2">&quot;TMP&quot;</span><span class="p">,</span><span class="s2">&quot;TRP&quot;</span><span class="p">,</span><span class="s2">&quot;TPP&quot;</span><span class="p">]</span>
+
+  <span class="c1"># Creating the 3D scatter plot</span>
+  <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">strP</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">xdata</span><span class="o">=</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">ydata</span><span class="o">=</span><span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">zdata</span><span class="o">=</span><span class="n">data</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter3d</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">xdata</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">ydata</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="n">zdata</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">symbol</span><span class="o">=</span><span class="n">simbolos</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">name</span><span class="o">=</span><span class="n">nombres</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+
+  <span class="c1"># Customizing the layout</span>
+  <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;3D Scatter Plot Example&#39;</span><span class="p">,</span>
+                  <span class="n">scene</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">xaxis_title</span><span class="o">=</span><span class="s1">&#39;x axis&#39;</span><span class="p">,</span> <span class="n">yaxis_title</span><span class="o">=</span><span class="s1">&#39;y axis&#39;</span><span class="p">,</span> <span class="n">zaxis_title</span><span class="o">=</span><span class="s1">&#39;z axis&#39;</span><span class="p">),</span>
+                  <span class="n">showlegend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+  <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="bloques.featureSelector.FeatureSelector.plot_matrix" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">plot_matrix</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">titulo</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Plots a matrix of feature with a given title.</p>
+
+
+
+  <p><span class="doc-section-title">Parameters:</span></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="doc-section-item">
+          <td><code>data</code></td>
+          <td>
+                <code>list</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>A list of 128 data points.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr class="doc-section-item">
+          <td><code>titulo</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The title of the plot.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><span class="doc-section-title">Raises:</span></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="doc-section-item">
+          <td>
+                <code>ValueError</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If the length of the data is not equal to 128.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><span class="doc-section-title">Returns:</span></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="doc-section-item">
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>None</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+          <details class="quote">
+            <summary>Source code in <code>bloques\featureSelector.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">plot_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">titulo</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Plots a matrix of feature with a given title.</span>
+
+<span class="sd">  Args:</span>
+<span class="sd">    data (list): A list of 128 data points.</span>
+<span class="sd">    titulo (str): The title of the plot.</span>
+
+<span class="sd">  Raises:</span>
+<span class="sd">    ValueError: If the length of the data is not equal to 128.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">    None</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">128</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Es necesario recibir 128 caracteristicas&quot;</span><span class="p">)</span>
+
+  <span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+
+  <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+  <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Values&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">titulo</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Caracteristicas&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Canales&#39;</span><span class="p">)</span>
+
+  <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">16</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">nombresCarac</span><span class="p">)</span>
+
+  <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="bloques.featureSelector.FeatureSelector.zero_crossing_count" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">zero_crossing_count</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Calculates the number of zero crossings in a given signal.</p>
+<p>Parameters:
+signal (list): The input signal.</p>
+<p>Returns:
+int: The number of zero crossings in the signal.</p>
+
+          <details class="quote">
+            <summary>Source code in <code>bloques\featureSelector.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">zero_crossing_count</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">signal</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Calculates the number of zero crossings in a given signal.</span>
+
+<span class="sd">  Parameters:</span>
+<span class="sd">  signal (list): The input signal.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">  int: The number of zero crossings in the signal.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">signal</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">signal</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">signal</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">signal</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">signal</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+      <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+  <span class="k">return</span> <span class="n">count</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<a id="bloques.ejemploUsoFeatureSelector"></a>
+  <div class="doc doc-contents first">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="bloques.ejemploUsoFeatureSelector.main" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">main</span><span class="p">()</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>This is the main function that performs the following steps:
+1. Loads the 'x' and 'y' data from files.
+2. Reshapes the 'x' data.
+3. Converts the reshaped 'x' data into a DataFrame.
+4. Prints the length of the DataFrame.
+5. Prints the first few rows of the DataFrame.
+6. Caracterizes the features of the dataset using the 'fs' featureSelector.
+7. Prints the length of the caracterized features.</p>
+<p>Returns:
+None</p>
+
+          <details class="quote">
+            <summary>Source code in <code>bloques\ejemploUsoFeatureSelector.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  This is the main function that performs the following steps:</span>
+<span class="sd">  1. Loads the &#39;x&#39; and &#39;y&#39; data from files.</span>
+<span class="sd">  2. Reshapes the &#39;x&#39; data.</span>
+<span class="sd">  3. Converts the reshaped &#39;x&#39; data into a DataFrame.</span>
+<span class="sd">  4. Prints the length of the DataFrame.</span>
+<span class="sd">  5. Prints the first few rows of the DataFrame.</span>
+<span class="sd">  6. Caracterizes the features of the dataset using the &#39;fs&#39; featureSelector.</span>
+<span class="sd">  7. Prints the length of the caracterized features.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">  None</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;x.npy&#39;</span><span class="p">)</span>
+  <span class="n">forma</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
+
+  <span class="n">xCalc</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">forma</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">forma</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">forma</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+  <span class="n">xdf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">xCalc</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">xdf</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+  <span class="c1"># Get the features of the dataset calculated by the featureSelector</span>
+  <span class="n">featureSelector</span> <span class="o">=</span> <span class="n">fs</span><span class="o">.</span><span class="n">FeatureSelector</span><span class="p">()</span>
+  <span class="n">xtrainC</span> <span class="o">=</span> <span class="n">featureSelector</span><span class="o">.</span><span class="n">caracterizar</span><span class="p">(</span><span class="n">xdf</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xtrainC</span><span class="p">))</span>
+
+  <span class="n">xn</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">xtrainC</span><span class="p">)</span>
+  <span class="n">new</span><span class="o">=</span><span class="n">xn</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">forma</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">8</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">featureSelector</span><span class="o">.</span><span class="n">nombresCarac</span><span class="p">)))</span>
+  <span class="n">xtrainC</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">new</span><span class="p">)</span>
+  <span class="n">xtrainC</span> <span class="o">=</span> <span class="n">xtrainC</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">xtrainC</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">featureSelector</span><span class="o">.</span><span class="n">nombresFull</span><span class="p">)))</span>
+
+  <span class="n">array</span> <span class="o">=</span> <span class="n">xtrainC</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+  <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;xtrainC.npy&quot;</span><span class="p">,</span><span class="n">array</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
